@@ -1,0 +1,18 @@
+
+#set Script Execution policy
+#set-executionpolicy unrestricted -scope Process -Force
+
+function main()
+{
+$name= Read-Host -Prompt "Name of script"
+$location= Read-Host -Prompt "location of script"
+$location2= Read-Host -Prompt "location of exe"
+
+Install-Module ps2exe -F
+
+Invoke-PS2EXE $location\$name.ps1 $location2\$name.exe
+
+#set-executionpolicy unrestricted -scope Process -Force
+}
+
+main
